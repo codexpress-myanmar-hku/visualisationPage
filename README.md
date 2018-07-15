@@ -1,2 +1,2 @@
 # CodeXpress Data Visualization Application
-Data Visualization using data from ThinkSpeak.
+Data Visualization using data from ThinkSpeak..
