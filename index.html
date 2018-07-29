@@ -5,23 +5,106 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Codexpress</title>
+
+
     <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
-    <script src="js/app.js"></script>
-</head>
-<body>
-    <div class="topnav">
-        <label id="device1" class="active">Device 1</label>
-        <label id="device2">Device 2</label>
-        <label id="device3">Device 3</label>
-        <label id="device4">Device 4</label>
-        <label id="device5">Device 5</label>
-        <label id="device6">Device 6</label>
-    </div>
 
-    <div id="main">
-        <div id="linechart_material" class="chart"></div>
+    <script src="js/app.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+    <div class="container-fluid">
+        
+        <div class="topnav row">
+                <span id="device1" class="active btn btn-outline-light col btns">Device 1</span>
+                <span id="device2" class="btn btn-outline-light col btns">Device 2</span>
+                <span  id="device3" class="btn btn-outline-light col btns">Device 3</span>
+                <span  id="device4" class="btn btn-outline-light col btns">Device 4</span>
+                <span  id="device5" class="btn btn-outline-light col btns">Device 5</span>
+                <span  id="device6" class="btn btn-outline-light col btns">Device 6</span>
+        </div>
+        
+        <div class="row graph-row">
+            <div id="graphs" class="carousel slide carousel-fade" data-ride="carousel" data-interval="false">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active container-fluid">
+                            <div class="row">
+                                <div class="col text-center">
+                                        <h1 class="display-4">Number</h1>
+                                </div>
+                                <div class="col">
+                                    <div id="linechart_material1" class="chart"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item container-fluid">
+                            <div class="row">
+                                <div class="col">
+                                    <h1>Number</h1>
+                                </div>
+                                <div class="col">
+                                    <div id="linechart_material2" class="chart"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item container-fluid">
+                            <div class="row">
+                                    <div class="col">
+                                            <h1>Number</h1>
+                                        </div>
+                                <div class="col">
+                                    <div id="linechart_material3" class="chart"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item container-fluid">
+                            <div class="row">
+                                    <div class="col">
+                                            <h1>Number</h1>
+                                        </div>
+                                <div class="col">
+                                    <div id="linechart_material4" class="chart"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item container-fluid">
+                            <div class="row">
+                                    <div class="col">
+                                            <h1>Number</h1>
+                                        </div>
+                                <div class="col">
+                                    <div id="linechart_material5" class="chart"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item container-fluid">
+                            <div class="row">
+                                    <div class="col">
+                                            <h1>Number</h1>
+                                        </div>
+                                <div class="col">
+                                <div id="linechart_material6" class="chart"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <a class="carousel-control-prev" href="#graphs" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#graphs" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+            </div>
+        </div>
+
     </div>
 </body>
 </html>

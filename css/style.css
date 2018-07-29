@@ -2,36 +2,62 @@ body{
   margin: 0px;
 }
 
+.container-fluid {
+  padding: 0 !important;
+}
+
+.row{
+  margin: 0 !important;
+  padding: 10px;
+}
+
 .topnav {
   overflow: hidden;
-  background-color: #333;
-  padding-left: 13vw;
+  background-color:#455A64;
   padding-top: 0.5vw;
   padding-bottom: 0.5vw;
 }
-  
-.topnav label {
-  float: left;
-  color: #f2f2f2;
-  text-align: center;
-  padding: 14px 16px;
+
+.graph-row{
+  width: 100%;
+}
+
+#graphs{
+  width: 100%;
+}
+
+.carousel-control-prev-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23000' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E") !important;
+ }
+ 
+ .carousel-control-next-icon {
+   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23000' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E") !important;
+ }
+
+.btns {
+  color: #FFFFFF !important;
   text-decoration: none;
-  font-size: 17px;
-  border-radius: 10vw;
-  width:10vw;
+  font-size: 17px !important;
+  border-width: 0px !important;
+  border-radius: 40px !important;
+  box-sizing: border-box;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  padding: 4px;
 }
-  
-.topnav label:hover {
+
+.btns:hover {
   background-color: #ddd;
-  color: black;
+  color: black !important;
 }
   
-.topnav label.active {
-  background-color: rgb(153, 153, 153);
+.btns.active {
+  background-color: #607D8B !important;
   color: white;
 }
 
 .chart{
-  width:50vw;
-  min-height: 450px;
+  width:100%;
 }
