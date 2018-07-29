@@ -55,12 +55,16 @@ $(function () {
         device_num = 6;
     });
 
+
+    $('#graphs').on('slide.bs.carousel', ()=>{
+        console.log("Slide event");
+    })
     /* $(window).resize(function () {
         getData(device_num);
     }); */
+    //$($($($("div").find(".active")[2]).children()[0]).children()[1]).children();
     getData(device_num);
 });
-//var arr=[];
 var soil_Temp = [];
 var soil_Moist = [];
 var Temp = [];
@@ -80,63 +84,54 @@ function getData(dev_num) {
             var time = [];
             var Rssi = [];
             var Switch = [];
-            for (let i = 0; i < x.length; i++) {
+            let counter=0;
+            for (let i = (x.length)-1; i >= 0; i--) {
                 var obj = x[i];
                 if (obj.timestamp === null) {
                     let d = new Date();
                     if (i != 0 && time[i - 1] == d.getHours())
-                        time[i] = ((d.getHours()).toString() + ":30");
+                        time.push((d.getHours()).toString() + ":30");
                     else
-                        time[i] = ((d.getHours()).toString());
+                        time.push((d.getHours()).toString());
                 }
                 else {
-                    time[i] = gettime(obj.timestamp);
+                    time.push(gettime(obj.timestamp));
                 }
                 if (obj.soil_temp === null)
-                    soil_Temp.push([time[i], 0]);
+                    soil_Temp.push([time[counter], 0]);
                 else
-                    soil_Temp.push([time[i], parseFloat(obj.soil_temp)]);
+                    soil_Temp.push([time[counter], parseFloat(obj.soil_temp)]);
                 if (obj.soil_moist === null)
-                    soil_Moist.push([time[i], 0]);
+                    soil_Moist.push([time[counter], 0]);
                 else
-                    soil_Moist.push([time[i], parseFloat(obj.soil_moist)]);
+                    soil_Moist.push([time[counter], parseFloat(obj.soil_moist)]);
                 if (obj.temp === null)
-                    Temp.push([time[i], 0]);
+                    Temp.push([time[counter], 0]);
                 else
-                    Temp.push([time[i], parseFloat(obj.temp)]);
+                    Temp.push([time[counter], parseFloat(obj.temp)]);
                 if (obj.humidity === null)
-                    Humidity.push([time[i], 0]);
+                    Humidity.push([time[counter], 0]);
                 else
-                    Humidity.push([time[i], parseFloat(obj.humidity)]);
+                    Humidity.push([time[counter], parseFloat(obj.humidity)]);
                 if (obj.input_current === null)
-                    input_Current.push([time[i], 0]);
+                    input_Current.push([time[counter], 0]);
                 else
-                    input_Current.push([time[i], parseFloat(obj.input_current)]);
+                    input_Current.push([time[counter], parseFloat(obj.input_current)]);
                 if (obj.input_voltage === null)
-                    input_Voltage.push([time[i], 0]);
+                    input_Voltage.push([time[counter], 0]);
                 else
-                    input_Voltage.push([time[i], parseFloat(obj.input_voltage)]);
+                    input_Voltage.push([time[counter], parseFloat(obj.input_voltage)]);
                 if (obj.rssi === null)
-                    Rssi.push([time[i], 0]);
+                    Rssi.push([time[counter], 0]);
                 else
-                    Rssi.push([time[i], parseFloat(obj.rssi)]);
+                    Rssi.push([time[counter], parseFloat(obj.rssi)]);
                 if (obj.switch === null)
-                    Switch.push([time[i], 0]);
+                    Switch.push([time[counter], 0]);
                 else
-                    Switch.push([time[i], parseFloat(obj.switch)]);
+                    Switch.push([time[counter], parseFloat(obj.switch)]);
+                counter++;
             }
-            /* for(let i=0;i<x.length;i++){
-                let temp=[];
-                temp.push(time[i]);
-                temp.push(soil_Temp[i]);
-                temp.push(soil_Moist[i]);
-                temp.push(Temp[i]);
-                temp.push(Humidity[i]);
-                temp.push(input_Current[i]);
-                temp.push(input_Voltage[i]);
-                arr.push(temp);
-            } */
-            //console.log(arr);
+            console.log(soil_Temp);
             google.charts.load('current', { 'packages': ['line'] });
             google.charts.setOnLoadCallback(drawChart);
         }
@@ -178,10 +173,12 @@ function drawChart() {
                 max: 100
             }, */
         },
+        vAxis: { format: '0.00' },
         chart: {
             title: 'Prototype 1',
-            subtitle: 'Dated: '
+            subtitle: 'Dated: ',
         },
+        curveType: 'function',
         width: 700,
         height: 400
     };
@@ -198,14 +195,20 @@ function drawChart() {
     chart5.draw(input_c, google.charts.Line.convertOptions(options));
     var chart6 = new google.charts.Line(document.getElementById('linechart_material6'));
     chart6.draw(input_v, google.charts.Line.convertOptions(options));
+
+    //Get the last entries of eacch data
+    $('#stemp').text(soil_Temp[soil_Temp.length - 1][1]);
+    $('#smoist').text(soil_Moist[soil_Moist.length - 1][1]);
+    $('#atemp').text(Temp[Temp.length - 1][1]);
+    $('#ahumid').text(Humidity[Humidity.length - 1][1]);
+    $('#current').text(input_Current[input_Current.length - 1][1]);
+    $('#volt').text(input_Voltage[input_Voltage.length - 1][1]);
 }
 
 function gettime(UTC_time) {
     let hr = new Date(UTC_time).getUTCHours();
     let mins = new Date(UTC_time).getUTCMinutes();
     let secs= new Date(UTC_time).getUTCSeconds();
-    
-    //console.log(UTC_time, hr,mins,secs);
     let time = [];
     time.push(hr,mins,secs);
     return time;

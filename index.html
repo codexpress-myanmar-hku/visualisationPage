@@ -32,11 +32,20 @@
         
         <div class="row graph-row">
             <div id="graphs" class="carousel slide carousel-fade" data-ride="carousel" data-interval="false">
+                    <ol class="carousel-indicators">
+                        <li data-target="#graphs" data-slide-to="0" class="active"></li>
+                        <li data-target="#graphs" data-slide-to="1"></li>
+                        <li data-target="#graphs" data-slide-to="2"></li>
+                        <li data-target="#graphs" data-slide-to="3"></li>
+                        <li data-target="#graphs" data-slide-to="4"></li>
+                        <li data-target="#graphs" data-slide-to="5"></li>
+                    </ol>
+
                     <div class="carousel-inner">
                         <div class="carousel-item active container-fluid">
-                            <div class="row">
+                            <div class="row d-flex align-items-center">
                                 <div class="col text-center">
-                                        <h1 class="display-4">Number</h1>
+                                    <h1 class="display-4"><span id="stemp"></span>&#176;C</h1>
                                 </div>
                                 <div class="col">
                                     <div id="linechart_material1" class="chart"></div>
@@ -44,9 +53,9 @@
                             </div>
                         </div>
                         <div class="carousel-item container-fluid">
-                            <div class="row">
-                                <div class="col">
-                                    <h1>Number</h1>
+                            <div class="row d-flex align-items-center">
+                                <div class="col text-center">
+                                        <h1 class="display-4"><span id="smoist"></span>&#176;C</h1>
                                 </div>
                                 <div class="col">
                                     <div id="linechart_material2" class="chart"></div>
@@ -54,9 +63,9 @@
                             </div>
                         </div>
                         <div class="carousel-item container-fluid">
-                            <div class="row">
-                                    <div class="col">
-                                            <h1>Number</h1>
+                            <div class="row d-flex align-items-center">
+                                    <div class="col text-center">
+                                            <h1 class="display-4"><span id="atemp"></span>&#176;C</h1>
                                         </div>
                                 <div class="col">
                                     <div id="linechart_material3" class="chart"></div>
@@ -64,9 +73,9 @@
                             </div>
                         </div>
                         <div class="carousel-item container-fluid">
-                            <div class="row">
-                                    <div class="col">
-                                            <h1>Number</h1>
+                            <div class="row d-flex align-items-center">
+                                    <div class="col text-center">
+                                            <h1 class="display-4"><span id="ahumid"></span>&#176;C</h1>
                                         </div>
                                 <div class="col">
                                     <div id="linechart_material4" class="chart"></div>
@@ -74,9 +83,9 @@
                             </div>
                         </div>
                         <div class="carousel-item container-fluid">
-                            <div class="row">
-                                    <div class="col">
-                                            <h1>Number</h1>
+                            <div class="row d-flex align-items-center">
+                                    <div class="col text-center">
+                                            <h1 class="display-4"><span id="current"></span>A</h1>
                                         </div>
                                 <div class="col">
                                     <div id="linechart_material5" class="chart"></div>
@@ -84,10 +93,10 @@
                             </div>
                         </div>
                         <div class="carousel-item container-fluid">
-                            <div class="row">
-                                    <div class="col">
-                                            <h1>Number</h1>
-                                        </div>
+                            <div class="row d-flex align-items-center">
+                                    <div class="col text-center">
+                                        <h1 class="display-4"><span id="volt"></span>V</h1>
+                                    </div>
                                 <div class="col">
                                 <div id="linechart_material6" class="chart"></div>
                                 </div>
