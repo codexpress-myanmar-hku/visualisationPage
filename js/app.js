@@ -57,12 +57,11 @@ $(function () {
 
 
     $('#graphs').on('slide.bs.carousel', ()=>{
-        console.log("Slide event");
+        drawChart();
     })
     /* $(window).resize(function () {
         getData(device_num);
     }); */
-    //$($($($("div").find(".active")[2]).children()[0]).children()[1]).children();
     getData(device_num);
 });
 var soil_Temp = [];
@@ -131,7 +130,6 @@ function getData(dev_num) {
                     Switch.push([time[counter], parseFloat(obj.switch)]);
                 counter++;
             }
-            console.log(soil_Temp);
             google.charts.load('current', { 'packages': ['line'] });
             google.charts.setOnLoadCallback(drawChart);
         }
