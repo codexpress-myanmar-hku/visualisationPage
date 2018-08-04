@@ -8,6 +8,7 @@ $(function () {
         $("#device5").removeClass("active");
         $("#device6").removeClass("active");
         device_num = 1;
+        getData(device_num);
     });
     $("#device2").click(function () {
         $(this).addClass("active");
@@ -17,6 +18,7 @@ $(function () {
         $("#device5").removeClass("active");
         $("#device6").removeClass("active");
         device_num = 2;
+        getData(device_num);
     });
     $("#device3").click(function () {
         $(this).addClass("active");
@@ -26,6 +28,7 @@ $(function () {
         $("#device5").removeClass("active");
         $("#device6").removeClass("active");
         device_num = 3;
+        getData(device_num);
     });
     $("#device4").click(function () {
         $(this).addClass("active");
@@ -35,6 +38,7 @@ $(function () {
         $("#device5").removeClass("active");
         $("#device6").removeClass("active");
         device_num = 4;
+        getData(device_num);
     });
     $("#device5").click(function () {
         $(this).addClass("active");
@@ -44,6 +48,7 @@ $(function () {
         $("#device4").removeClass("active");
         $("#device6").removeClass("active");
         device_num = 5;
+        getData(device_num);
     });
     $("#device6").click(function () {
         $(this).addClass("active");
@@ -53,6 +58,7 @@ $(function () {
         $("#device4").removeClass("active");
         $("#device5").removeClass("active");
         device_num = 6;
+        getData(device_num);
     });
 
 
@@ -80,8 +86,16 @@ function getData(dev_num) {
         },
         url: "https://e58fw3pq9b.execute-api.us-east-1.amazonaws.com/dev/codexpress_data?type=data",
         success: function (result) {
+            soil_Temp = [];
+            soil_Moist = [];
+            Temp = [];
+            Humidity = [];
+            input_Current = [];
+            input_Voltage = [];
+            time = [];
+            date = "";
             console.log(result);
-            let x = result.data;
+            let x = result.data[dev_num];
             if (x.length === 0) {
                 time.push(16, 00, 00);
                 soil_Temp.push([time, 0]);
@@ -186,18 +200,19 @@ function drawChart() {
                 max: 100
             }, */
         },
-        vAxis: { 
-            format: '0.00' 
+        vAxis: {
+            format: '0.00'
         },
         chart: {
-            title: 'Prototype 1',
-            subtitle: 'Dated: '+date,
+            title: 'Realtime readings',
+            subtitle: 'Dated: ' + date,
         },
         curveType: 'function',
         colors: ['red'],
-        width:700,
-        height:400,
-        lineWidth: 10
+        width: 700,
+        height: 400,
+        lineWidth: 10,
+        //backgroundColor.stroke: '#766'
     };
 
     var chart1 = new google.charts.Line(document.getElementById('linechart_material1'));
