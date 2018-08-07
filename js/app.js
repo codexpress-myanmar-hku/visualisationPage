@@ -1,6 +1,7 @@
 $(function () {
     let device_num = 1;
     $("#device1").click(function () {
+        toggle(1);
         $(this).addClass("active");
         $("#device2").removeClass("active");
         $("#device3").removeClass("active");
@@ -11,6 +12,7 @@ $(function () {
         getData(device_num);
     });
     $("#device2").click(function () {
+        toggle(1);
         $(this).addClass("active");
         $("#device1").removeClass("active");
         $("#device3").removeClass("active");
@@ -21,6 +23,7 @@ $(function () {
         getData(device_num);
     });
     $("#device3").click(function () {
+        toggle(1);
         $(this).addClass("active");
         $("#device1").removeClass("active");
         $("#device2").removeClass("active");
@@ -31,6 +34,7 @@ $(function () {
         getData(device_num);
     });
     $("#device4").click(function () {
+        toggle(1);
         $(this).addClass("active");
         $("#device1").removeClass("active");
         $("#device2").removeClass("active");
@@ -41,6 +45,7 @@ $(function () {
         getData(device_num);
     });
     $("#device5").click(function () {
+        toggle(1);
         $(this).addClass("active");
         $("#device1").removeClass("active");
         $("#device2").removeClass("active");
@@ -51,6 +56,7 @@ $(function () {
         getData(device_num);
     });
     $("#device6").click(function () {
+        toggle(1);
         $(this).addClass("active");
         $("#device1").removeClass("active");
         $("#device2").removeClass("active");
@@ -68,6 +74,7 @@ $(function () {
     /* $(window).resize(function () {
         getData(device_num);
     }); */
+    toggle(1);
     getData(device_num);
 });
 var soil_Temp = [];
@@ -86,6 +93,7 @@ function getData(dev_num) {
         },
         url: "https://e58fw3pq9b.execute-api.us-east-1.amazonaws.com/dev/codexpress_data?type=data",
         success: function (result) {
+            toggle(0);
             soil_Temp = [];
             soil_Moist = [];
             Temp = [];
@@ -131,7 +139,7 @@ function getData(dev_num) {
                     if (obj.soil_moist === null)
                         soil_Moist.push([time[counter], 0]);
                     else
-                        soil_Moist.push([time[counter], parseFloat(obj.soil_moist)]);
+                        soil_Moist.push([time[counter], parseFloat((((parseFloat(obj.soil_moist)) / 1024) * 100).toFixed(2))]);
                     if (obj.temp === null)
                         Temp.push([time[counter], 0]);
                     else
@@ -254,4 +262,13 @@ function gettime(UTC_time) {
     let time = [];
     time.push(hr, mins, secs);
     return time;
+}
+
+function toggle(signal) {
+    $("#d1").children().each(function () {
+        if (signal === 1)
+            $(this).children().hide();
+        else
+            $(this).children().show();
+    });
 }

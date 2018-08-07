@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,100 +21,106 @@
 
 <body>
     <div class="container-fluid">
-        
+
         <div class="topnav row">
-                <span id="device1" class="active btn btn-outline-light col btns">Device 1</span>
-                <span id="device2" class="btn btn-outline-light col btns">Device 2</span>
-                <span  id="device3" class="btn btn-outline-light col btns">Device 3</span>
-                <span  id="device4" class="btn btn-outline-light col btns">Device 4</span>
-                <span  id="device5" class="btn btn-outline-light col btns">Device 5</span>
-                <span  id="device6" class="btn btn-outline-light col btns">Device 6</span>
+            <span id="device1" class="active btn btn-outline-light col btns">Device 1</span>
+            <span id="device2" class="btn btn-outline-light col btns">Device 2</span>
+            <span id="device3" class="btn btn-outline-light col btns">Device 3</span>
+            <span id="device4" class="btn btn-outline-light col btns">Device 4</span>
+            <span id="device5" class="btn btn-outline-light col btns">Device 5</span>
+            <span id="device6" class="btn btn-outline-light col btns">Device 6</span>
         </div>
-        
+
         <div class="row graph-row">
             <div id="graphs" class="carousel slide carousel-fade" data-ride="carousel" data-interval="false">
-                    <ol class="carousel-indicators">
-                        <li data-target="#graphs" data-slide-to="0" class="active"></li>
-                        <li data-target="#graphs" data-slide-to="1"></li>
-                        <li data-target="#graphs" data-slide-to="2"></li>
-                        <li data-target="#graphs" data-slide-to="3"></li>
-                        <li data-target="#graphs" data-slide-to="4"></li>
-                        <li data-target="#graphs" data-slide-to="5"></li>
-                    </ol>
+                <ol class="carousel-indicators">
+                    <li data-target="#graphs" data-slide-to="0" class="active"></li>
+                    <li data-target="#graphs" data-slide-to="1"></li>
+                    <li data-target="#graphs" data-slide-to="2"></li>
+                    <li data-target="#graphs" data-slide-to="3"></li>
+                    <li data-target="#graphs" data-slide-to="4"></li>
+                    <li data-target="#graphs" data-slide-to="5"></li>
+                </ol>
 
-                    <div class="carousel-inner">
-                        <div class="carousel-item active container-fluid">
-                            <div class="row d-flex align-items-center">
-                                <div class="col text-center">
-                                    <h1 class="display-4"><span id="stemp"></span>&#176;C</h1>
-                                </div>
-                                <div class="col">
-                                    <div id="linechart_material1" class="chart"></div>
-                                </div>
+                <div class="carousel-inner">
+                    <div class="carousel-item active container-fluid">
+                        <div class="row d-flex align-items-center" id='d1'>
+                            <div class="col text-center">
+                                <h1 class="display-4">
+                                    <span id="stemp"></span>&#176;C</h1>
                             </div>
-                        </div>
-                        <div class="carousel-item container-fluid">
-                            <div class="row d-flex align-items-center">
-                                <div class="col text-center">
-                                        <h1 class="display-4"><span id="smoist"></span>&#176;C</h1>
-                                </div>
-                                <div class="col">
-                                    <div id="linechart_material2" class="chart"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="carousel-item container-fluid">
-                            <div class="row d-flex align-items-center">
-                                    <div class="col text-center">
-                                            <h1 class="display-4"><span id="atemp"></span>&#176;C</h1>
-                                        </div>
-                                <div class="col">
-                                    <div id="linechart_material3" class="chart"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="carousel-item container-fluid">
-                            <div class="row d-flex align-items-center">
-                                    <div class="col text-center">
-                                            <h1 class="display-4"><span id="ahumid"></span>%RH</h1>
-                                        </div>
-                                <div class="col">
-                                    <div id="linechart_material4" class="chart"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="carousel-item container-fluid">
-                            <div class="row d-flex align-items-center">
-                                    <div class="col text-center">
-                                            <h1 class="display-4"><span id="current"></span>A</h1>
-                                        </div>
-                                <div class="col">
-                                    <div id="linechart_material5" class="chart"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="carousel-item container-fluid">
-                            <div class="row d-flex align-items-center">
-                                    <div class="col text-center">
-                                        <h1 class="display-4"><span id="volt"></span>V</h1>
-                                    </div>
-                                <div class="col">
-                                <div id="linechart_material6" class="chart"></div>
-                                </div>
+                            <div class="col">
+                                <div id="linechart_material1" class="chart"></div>
                             </div>
                         </div>
                     </div>
-                    <a class="carousel-control-prev" href="#graphs" role="button" data-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Previous</span>
-                    </a>
-                    <a class="carousel-control-next" href="#graphs" role="button" data-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Next</span>
-                    </a>
+                    <div class="carousel-item container-fluid">
+                        <div class="row d-flex align-items-center" id='d2'>
+                            <div class="col text-center">
+                                <h1 class="display-4">
+                                    <span id="smoist"></span>%RH</h1>
+                            </div>
+                            <div class="col">
+                                <div id="linechart_material2" class="chart"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item container-fluid">
+                        <div class="row d-flex align-items-center" id='d3'>
+                            <div class="col text-center">
+                                <h1 class="display-4">
+                                    <span id="atemp"></span>&#176;C</h1>
+                            </div>
+                            <div class="col">
+                                <div id="linechart_material3" class="chart"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item container-fluid">
+                        <div class="row d-flex align-items-center" id='d4'>
+                            <div class="col text-center">
+                                <h1 class="display-4">
+                                    <span id="ahumid"></span>%RH</h1>
+                            </div>
+                            <div class="col">
+                                <div id="linechart_material4" class="chart"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item container-fluid">
+                        <div class="row d-flex align-items-center" id='d5'>
+                            <div class="col text-center">
+                                <h1 class="display-4">
+                                    <span id="current"></span>A</h1>
+                            </div>
+                            <div class="col">
+                                <div id="linechart_material5" class="chart"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item container-fluid">
+                        <div class="row d-flex align-items-center" id='d6'>
+                            <div class="col text-center">
+                                <h1 class="display-4">
+                                    <span id="volt"></span>V</h1>
+                            </div>
+                            <div class="col">
+                                <div id="linechart_material6" class="chart"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a class="carousel-control-prev" href="#graphs" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#graphs" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
             </div>
         </div>
-
     </div>
 </body>
+
 </html>
